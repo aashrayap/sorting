@@ -1,4 +1,3 @@
-#from wikipedia
 
 class MergeSort
   def initialize
@@ -16,15 +15,25 @@ class MergeSort
   def merge(left,right)
   	sorted_array=[]
   	until left.size==0 || right.size==0
-  	  if left.first <= right.first
-  		sorted_array << left.shift
-  	  else
-  	  	sorted_array<<right.shift
-  	  end
-  	end
-  	return sorted_array.concat(left).concat(right)
+	  if left[0]<right[0]
+	    sorted_array << left.shift
+	  else
+	  	sorted_array << right.shift
+	  end	
+	end
+	
+	left.each do |value|
+	  sorted_array<<value
+	end
+
+	right.each do |value|
+	  sorted_array<<value
+	end
+
+	return sorted_array
+
   end
 end
 
 mergesort=MergeSort.new
-print mergesort.sort([1,5,2,6,7,3,8])
+print mergesort.sort([1,51,2,6,7,3,8,19,32,4,55,22,16])
